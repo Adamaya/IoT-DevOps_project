@@ -1,0 +1,6 @@
+FROM debian
+
+RUN apt-get install python3 sudo 
+
+RUN sudo wget http://sourceforge.net/projects/webiopi/files/WebIOPi-0.7.1.tar.gz 
+

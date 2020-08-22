@@ -1,0 +1,23 @@
+FROM debian
+
+RUN apt-get install python3 sudo 
+
+RUN  sudo wget http://sourceforge.net/projects/webiopi/files/WebIOPi-0.7.1.tar.gz
+
+RUN sudo tar xvzf WebIOPi-0.7.1.tar.gz
+
+RUN cd WebIOPi-0.7.1
+
+RUN sudo wget https://raw.githubusercontent.com/doublebind/raspi/master/webiopi-pi2bplus.patch
+
+RUN sudo patch -p1 -i webiopi-pi2bplus.patch
+
+RUN sudo ./setup.sh
+
+RUN mkdir webserver && cd webserver && mkdir html && mkdir python
+
+RUN cp html/* html/ && cp python/* python
+
+RUN cp /etc/webiopi/config /etc/webiopi/config
+
+CMD ['sudo /etc/init.d/webiopi start']
