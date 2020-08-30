@@ -27,5 +27,6 @@ job('job1_pull_repo_build_image') {
                 noCache(false)
                 pull(true) 
         }
+        shell("sudo kubectl apply -f /home/pi/workspace/devops_project/pri.yaml")
     }
 }
