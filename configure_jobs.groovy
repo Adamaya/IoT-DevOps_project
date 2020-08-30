@@ -1,26 +1,20 @@
-pipeline {
+pipeline { 
     agent any 
     stages {
         stage('Build') { 
-            steps {
-                scm {
-        git {
-          remote {
-            url('https://github.com/Adamaya/pipeline_implementation_with_k8s_-_jenkins.git')
-          }
-          branch('*/master')
-        }
-      }
+            steps { 
+                sh 'make' 
             }
         }
-        stage('Test') { 
+        stage('Test'){
             steps {
-                // 
+                sh 'make check'
+                junit 'reports/**/*.xml' 
             }
         }
-        stage('Deploy') { 
+        stage('Deploy') {
             steps {
-                // 
+                sh 'make publish'
             }
         }
     }
