@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: light-server-service
+  labels:
+    app: light-server
+spec:
+  selector:
+    app: light-server
+  type: NodePort
+  ports:
+    - nodePort: 31000
+      port: 8000
+      targetPort: 8000

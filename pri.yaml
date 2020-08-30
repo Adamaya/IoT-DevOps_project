@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: light-controller
+  labels:
+    app: light-server
+spec:
+  selector:
+    matchLabels:
+      app: light-server
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: light-server
+    spec:
+      containers:
+      - name: light-server
+        image: adamayasharma/light-controller-webserver
+        securityContext:
+           privileged: true
+        ports:
+        - containerPort: 8000
+          name: light-server
