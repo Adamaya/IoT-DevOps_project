@@ -1,8 +1,6 @@
 job('job1_pull_repo_build_image') {
     steps {
-        axis{
-        labelExpression("rpi_docker", "true")
-        }
+        
       scm {
         git {
           remote {
