@@ -11,9 +11,6 @@ job('job1_pull_repo_build_image') {
       triggers {
         scm('* * * * *')
       }
-      build {
-            
-            steps {
                 dockerBuilderPublisher {
                   dockerFileDirectory("/home/php")
                   fromRegistry {
@@ -28,9 +25,7 @@ job('job1_pull_repo_build_image') {
                 cleanImages(false)
                 cleanupWithJenkinsJobDelete(false)
                 noCache(false)
-                pull(true)
-                }    
-            }
+                pull(true) 
         }
     }
 }
