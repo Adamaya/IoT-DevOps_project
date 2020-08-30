@@ -1,4 +1,4 @@
-job('job1_pull_repo_build_image') {
+job('build_launch_container_in_rpi') {
     steps {
       scm {
         git {
