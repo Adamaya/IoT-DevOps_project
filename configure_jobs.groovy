@@ -1,4 +1,8 @@
-job('job1_pull_repo_build_image') {
+pipeline{
+
+    stages{
+    
+stage('job1_pull_repo_build_image') {
     steps {
       scm {
         git {
@@ -37,3 +41,5 @@ job('job1_pull_repo_build_image') {
         }
     }
 }     
+}
+}
