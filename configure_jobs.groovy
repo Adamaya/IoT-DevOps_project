@@ -12,14 +12,14 @@ job('1_build_container') {
         scm('* * * * *')
       }
                 dockerBuilderPublisher {
-                  dockerFileDirectory("/home/php")
+                  dockerFileDirectory("/home/pi/workspace/devops_project")
                   fromRegistry {
                     url("adamayasharma")
                     credentialsId("3f885629-0783-4229-8808-f2610c781c80")
                   }
-                cloud("docker")
+                cloud("rpi")
     
-                tagsString("adamayasharma/-gphp-webserver")
+                tagsString("adamayasharma/light-controller-webserver")
                 pushCredentialsId("3f885629-0783-4229-8808-f2610c781c80")
                 pushOnSuccess(true)
                 cleanImages(false)
