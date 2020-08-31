@@ -1,9 +1,9 @@
-job('build_launch_container_in_rpi') {
+job('1_build_container') {
     steps {
       scm {
         git {
           remote {
-            url('https://github.com/Adamaya/pipeline_implementation_with_k8s_-_jenkins.git')
+            url('https://github.com/Adamaya/IoT-DevOps_project.git')
           }
           branch('*/master')
         }
@@ -27,6 +27,10 @@ job('build_launch_container_in_rpi') {
                 noCache(false)
                 pull(true) 
         }
-        shell("sudo kubectl apply -f /home/pi/workspace/devops_project/pri.yaml")
     }
 }
+job('2_launch_container') {
+    steps {
+      shell("sudo kubectl apply -f /home/pi/workspace/devops_project/pri.yaml")
+    }
+}  
