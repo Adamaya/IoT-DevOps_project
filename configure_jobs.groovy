@@ -31,6 +31,11 @@ job('1_build_container') {
 }
 job('2_launch_container') {
     steps {
+        triggers {
+        upstream {
+      upstreamProjects("1_build_container")
+            }
+        }
       shell("sudo kubectl apply -f /home/pi/workspace/devops_project/pri.yaml")
     }
 }  
