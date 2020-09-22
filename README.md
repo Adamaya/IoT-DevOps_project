@@ -14,16 +14,22 @@ Finally, a continuous IoT application development cycle is created that is enhan
 Programming language:
 -	Python
 -	HTML
+
 Source Code Management tool:
 -	Git
 -	Github
+
 CI/CD tool:
 -	Jenkins
+
 Containerization tool:
 -	Docker
+
 Container Orchestration tool:
 -	K3s
+
 Monitoring tool:
 -	Prometheus
+
 Visualization tool:
 -	Grafana
